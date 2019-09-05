@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div id="app">
       <header>
       <nav>
@@ -21,7 +22,9 @@
           </li>
         </ul>
       </nav>
+
       </header>
+  </div>
     <div class="container">
       <aside class="aside">
         <router-view name="sidebar"/>
@@ -35,8 +38,14 @@
 </template>
 
 <script>
+
 export default {
   name: 'app',
+  data() {
+    return {
+      current: ['mail'],
+    };
+  },
 };
 </script>
 <style>

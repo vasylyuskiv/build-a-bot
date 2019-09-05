@@ -2,15 +2,15 @@
   <div>
     <h1>Browse Parts</h1>
     <ul class="menu">
-      <li> <router-link :to="{name:'BrowseHeads'}">Heads</router-link></li>
+      <li> <router-link :to="{name:'BrowseHeads'}"> <a-button class="" type="primary">Heads</a-button></router-link></li>
       <li>
-        <router-link :to="{name:'BrowseArms'}">Arms</router-link>
+        <router-link :to="{name:'BrowseArms'}"> <a-button class="" type="primary">Arms</a-button></router-link>
       </li>
       <li>
-        <router-link :to="{name:'BrowseTorsos'}">Torsos</router-link>
+        <router-link :to="{name:'BrowseTorsos'}"> <a-button class="" type="primary">Torsos</a-button></router-link>
       </li>
       <li>
-        <router-link :to="{name:'BrowseBases'}">Bases</router-link>
+        <router-link :to="{name:'BrowseBases'}"> <a-button class="" type="primary">Bases</a-button></router-link>
       </li>
     </ul>
     <router-view></router-view>
