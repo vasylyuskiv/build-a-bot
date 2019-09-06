@@ -17,7 +17,10 @@
         </div>
       </div>
     </CollapsibleSection>
-      <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
+      <!--<button class="add-to-cart" @click="addToCart()">Add to Cart</button>-->
+      <a-button class="add-to-cart" type="primary" @click="addToCart()">
+        Add to Cart<a-icon type="shopping-cart" />
+      </a-button>
     </div>
     <div class="top-row">
 
@@ -212,10 +215,7 @@ export default {
     position: relative;
   }
   .add-to-cart{
-    position: absolute;
-    width: 210px;
-    padding:3px;
-    font-size: 16px;
+    width: 180px;
   }
   td,th {
     text-align: left;
@@ -235,6 +235,7 @@ export default {
   }
   .preview-content {
     border: 1px solid #999;
+    border-radius: 1%;
   }
   .preview img {
     width: 50px;

@@ -21,15 +21,32 @@
             </router-link>
           </li>
         </ul>
+        <a-breadcrumb>
+          <router-link active-class="nav-high" class="nav-link" :to="{ name: 'Home'}" exact>
+          <a-breadcrumb-item href="">
+            <a-icon type="home" />
+          </a-breadcrumb-item>
+          </router-link>
+          <router-link active-class="nav-high" class="nav-link" :to="{ name: 'Build'}" exact>
+          <a-breadcrumb-item href="">
+            <a-icon type="user" />
+            <span>Build Robot</span>
+          </a-breadcrumb-item>
+          </router-link>
+          <router-link active-class="nav-high" class="nav-link" :to="{ name: 'BrowseParts'}" exact>
+          <a-breadcrumb-item>
+            Browse Parts
+          </a-breadcrumb-item>
+          </router-link>
+        </a-breadcrumb>
       </nav>
-
       </header>
   </div>
     <div class="container">
-      <aside class="aside">
+      <!--<aside class="aside">
         <router-view name="sidebar"/>
 
-      </aside>
+      </aside>-->
     <main>
     <router-view/>
     </main>
@@ -38,6 +55,7 @@
 </template>
 
 <script>
+  import { blue } from '@ant-design/colors';
 
 export default {
   name: 'app',
@@ -50,7 +68,7 @@ export default {
 </script>
 <style>
   body{
-    background: linear-gradient(to bottom, #e84393,#a29bfe );
+    background: linear-gradient(to bottom, #DADAD9,#DADAD1 );
     background-attachment: fixed;
   }
 </style>
@@ -62,12 +80,12 @@ export default {
 }
   main {
     padding: 30px;
-background-color: white;
+background-color: #DADAD9;
 width: 964px;
 min-height: 300px;
   }
 header {
-  background: linear-gradient(to right,#a29bfe,#fd79a8);
+  background: linear-gradient(to right,#DADAD9,#DADAD9);
   width: 1184px;
   margin: 0 auto;
 }
