@@ -19,7 +19,7 @@
     </CollapsibleSection>
       <!--<button class="add-to-cart" @click="addToCart()">Add to Cart</button>-->
       <a-button class="add-to-cart" type="primary" @click="addToCart()">
-        Add to Cart<a-icon type="shopping-cart" />
+        Add to Cart <a-icon type="shopping-cart" />
       </a-button>
     </div>
     <div class="top-row">
@@ -113,7 +113,8 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+  @import  "~ant-design-vue/dist/antd.less";
   .part {
     position: relative;
     width:165px;

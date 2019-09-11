@@ -10,6 +10,7 @@ import RobotBases from '../parts/RobotBases.vue';
 import RobotTorsos from '../parts/RobotTorsos.vue';
 import SidebarStandart from '../sidebar/SidebarStandart.vue';
 import SidebarBuild from '../sidebar/SidebarBuild.vue';
+import MoreInfo from '../build/MoreInfo.vue';
 
 Vue.use(Router);
 
@@ -66,6 +67,11 @@ export default new Router({
     name: 'Parts',
     component: PartInfo,
     props: true,
+  },
+  {
+    path: '/parts/more',
+    name: 'MoreInfo',
+    component: MoreInfo,
   },
   ],
 });

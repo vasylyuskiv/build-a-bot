@@ -19,6 +19,12 @@
             <router-link active-class="nav-high" class="nav-link" :to="{ name: 'BrowseParts'}" exact>
               Browse Parts
             </router-link>
+
+          </li>
+          <li class="nav-item">
+            <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
+              More Info
+            </router-link>
           </li>
         </ul>
         <a-breadcrumb>
@@ -38,6 +44,12 @@
             Browse Parts
           </a-breadcrumb-item>
           </router-link>
+          <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
+            <a-breadcrumb-item>
+              MoreInfo
+            </a-breadcrumb-item>
+          </router-link>
+
         </a-breadcrumb>
       </nav>
       </header>
@@ -55,7 +67,6 @@
 </template>
 
 <script>
-  import { blue } from '@ant-design/colors';
 
 export default {
   name: 'app',
@@ -66,7 +77,9 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="less">
+  @import  "~ant-design-vue/dist/antd.less";
+
   body{
     background: linear-gradient(to bottom, #DADAD9,#DADAD1 );
     background-attachment: fixed;
