@@ -23,7 +23,7 @@
           </li>
           <li class="nav-item">
             <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
-              More Info
+              add your own robot parts
             </router-link>
           </li>
         </ul>
@@ -46,7 +46,7 @@
           </router-link>
           <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
             <a-breadcrumb-item>
-              MoreInfo
+             add your own robot parts
             </a-breadcrumb-item>
           </router-link>
 
@@ -94,7 +94,7 @@ export default {
   main {
     padding: 30px;
 background-color: #DADAD9;
-width: 964px;
+width: 1164px;
 min-height: 300px;
   }
 header {
