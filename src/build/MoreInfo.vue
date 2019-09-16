@@ -6,18 +6,18 @@
     <div class="ant-col-16" id="show-server-robots">
       <h1> all server info listed below: </h1>
       <div  v-for="robotName in robotNames" class="single-info">
-        <h4><ul><li>{{ robotName.name }} <a-button id="deleteButton" v-on:click.once="deleteLine(robotName.id)" class="right" type="danger">delete</a-button></li></ul></h4>
+        <h4><ul><li>{{ robotName.name }} <a-button id="deleteButton"  v-on:click.once="deleteLine(robotName.id)" class="right" type="danger">delete</a-button></li></ul></h4>
       </div>
     </div>
 <div class="ant-col-8">
-  <form>
+  <form v-on:submit.prevent="post">
 <span class="ant-row">
   <label > Send your Robot Info</label>
   </span>
     <span class="ant-row">
   <label class="-block">
-    <input type="text" v-model="addedName" />
-    <a-button type="primary" id="postToBaseButton" v-on:click.prevent="post" >Send</a-button>
+    <input type="text" v-model="addedName" v-on:keyup.enter.prevent="post" />
+    <a-button type="primary" id="postToBaseButton" v-on:keyup.enter.prevent="post" v-on:click.prevent="post" >Send</a-button>
   </label>
       </span>
     </form>
@@ -54,8 +54,9 @@ export default {
       });
     },
     deleteLine(robotInfoId) {
-      this.$http.delete(`http://test-poc.loc/items/${robotInfoId}`).then(
-        this.fetchData(),
+      this.$http.delete(`http://test-poc.loc/items/${robotInfoId}`).then(() => {
+        this.fetchData();
+      }
       );
     },
     fetchData() {
