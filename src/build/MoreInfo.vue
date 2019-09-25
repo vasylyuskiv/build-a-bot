@@ -12,7 +12,7 @@
       </div>
     </div>
 <div class="ant-col-8">
-  <form v-on:submit.prevent="post">
+  <form id="formSubmit" v-on:submit.prevent="post">
 <span class="ant-row">
   <label > Send your Robot Info</label>
   </span>
@@ -22,7 +22,7 @@
     <a-input size="default" type="text" v-model="addedName" />
     </span>
     <span >
-    <a-button  type="primary" id="postToBaseButton" v-on:click.prevent="post" >Send</a-button>
+    <a-button  type="primary" id="postToBaseButton" v-on:click.prevent="post">Send</a-button>
     </span>
   </label>
       </span>
@@ -35,10 +35,11 @@
     title="Edit Robot Part"
     v-model="visible"
     @ok="handleModalOk" @cancel="handleModalCancel"
+
   >
       <div v-if="editableLine">
         <p>{{editableLine.id}}</p>
-        <p><a-input type="text" v-model="editableLine.name" /></p>
+        <p><a-input v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.name" /></p>
       </div>
   </a-modal>
   </div>
@@ -60,6 +61,7 @@ export default {
   },
   methods: {
     handleModalOpen(robotData) {
+
       this.visible = true;
       this.editableLine = robotData;
       this.nonEditedName = robotData.name;
@@ -78,7 +80,6 @@ export default {
         name: empytField,
       }).then((data) => {
         console.log(data);
-        // this.emit('itemPosted');
         this.fetchData();
         this.addedName = null;
         this.dataIsSending = false;
