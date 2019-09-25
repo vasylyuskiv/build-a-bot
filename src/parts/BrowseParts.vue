@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  @import  "~ant-design-vue/dist/antd.less";
+ /* @import  "~ant-design-vue/dist/antd.less";*/
   h1 {
     text-align: center;
   }

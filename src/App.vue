@@ -23,13 +23,13 @@
           </li>
           <li class="nav-item">
             <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
-              add your own robot parts
+              Add Parts
             </router-link>
           </li>
         </ul>
         <a-breadcrumb>
           <router-link active-class="nav-high" class="nav-link" :to="{ name: 'Home'}" exact>
-          <a-breadcrumb-item href="">
+          <a-breadcrumb-item >
             <a-icon type="home" />
           </a-breadcrumb-item>
           </router-link>
@@ -46,7 +46,7 @@
           </router-link>
           <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
             <a-breadcrumb-item>
-             add your own robot parts
+             Add Parts
             </a-breadcrumb-item>
           </router-link>
 
@@ -78,7 +78,7 @@ export default {
 };
 </script>
 <style lang="less">
-  @import  "~ant-design-vue/dist/antd.less";
+  /*@import  "~ant-design-vue/dist/antd.less";*/
 
   body{
     background: linear-gradient(to bottom, #DADAD9,#DADAD1 );

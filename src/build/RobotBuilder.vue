@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  @import  "~ant-design-vue/dist/antd.less";
+ /* @import  "~ant-design-vue/dist/antd.less";*/
   .part {
     position: relative;
     width:165px;

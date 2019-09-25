@@ -1,10 +1,10 @@
 <template>
   <div class="-col-24">
-    <label>Customise my own robot:</label>
+    <label>Customise your own robot:</label>
     <!--<a-button type="primary">Get info from server </a-button>-->
     <div class="-col-24" >
     <div class="ant-col-16" id="show-server-robots">
-      <h1> all server info listed below: </h1>
+      <h1> Your Parts: </h1>
       <div  v-for="robotName in robotNames" class="single-info">
         <h4><ul><li>{{ robotName.name }} <a-button id="deleteButton"  v-on:click.once="deleteLine(robotName.id)" class="right" type="danger">delete</a-button></li></ul></h4>
       </div>
@@ -16,8 +16,8 @@
   </span>
     <span class="ant-row">
   <label class="-block">
-    <input type="text" v-model="addedName" v-on:keyup.enter.prevent="post" />
-    <a-button type="primary" id="postToBaseButton" v-on:keyup.enter.prevent="post" v-on:click.prevent="post" >Send</a-button>
+    <input type="text" v-model="addedName" />
+    <a-button type="primary" id="postToBaseButton" v-on:click.prevent="post" >Send</a-button>
   </label>
       </span>
     </form>
@@ -56,8 +56,7 @@ export default {
     deleteLine(robotInfoId) {
       this.$http.delete(`http://test-poc.loc/items/${robotInfoId}`).then(() => {
         this.fetchData();
-      }
-      );
+      });
     },
     fetchData() {
       this.$http.get('http://test-poc.loc/items').then((data) => {
@@ -72,7 +71,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  @import "~ant-design-vue/dist/antd.less";
+ /* @import "~ant-design-vue/dist/antd.less";*/
 
   .right{
     float: right;
@@ -81,4 +80,8 @@ h4{
 
   background: linear-gradient(to right, #A2A7A5, #DADAD9 );
 }
+  #deleteButton {
+
+
+  }
 </style>
