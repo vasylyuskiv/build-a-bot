@@ -5,10 +5,10 @@
     <div class="ant-col-16" id="show-server-robots">
       <h1> Your Parts: </h1>
       <div  v-for="robotName in robotNames" class="single-info">
-          <h4><ul><li>{{ robotName.name }}
+          <h3><ul><li>{{ robotName.name }}
             <a-button id="deleteButton"  v-on:click.once="deleteLine(robotName.id)" class="right" type="danger">delete</a-button>
-            <a-button id="editButton" type="primary" class="right" v-on:click="handleModalOpen(robotName)">edit</a-button>
-          </li></ul></h4>
+            <a-button id="editButton" type="primary" class="right" v-on:click.prevent="handleModalOpen(robotName)">edit</a-button>
+          </li></ul></h3>
       </div>
     </div>
 <div class="ant-col-8">
@@ -61,7 +61,6 @@ export default {
   },
   methods: {
     handleModalOpen(robotData) {
-
       this.visible = true;
       this.editableLine = robotData;
       this.nonEditedName = robotData.name;
@@ -76,7 +75,7 @@ export default {
       this.dataIsSending = true;
       const empytField = this.addedName;
       this.addedName = null;
-      this.$http.post('http://test-poc.loc/items', {
+      this.$http.post(`${process.env.VUE_APP_HOST}/items`, {
         name: empytField,
       }).then((data) => {
         console.log(data);
@@ -86,13 +85,13 @@ export default {
       });
     },
     deleteLine(robotInfoId) {
-      this.$http.delete(`http://test-poc.loc/items/${robotInfoId}`).then(() => {
+      this.$http.delete(`${process.env.VUE_APP_HOST}/items/${robotInfoId}`).then(() => {
         this.fetchData();
       });
     },
     editLine(robotData) {
       this.visible = false;
-      this.$http.put(`http://test-poc.loc/items/${robotData.id}`, {
+      this.$http.put(`${process.env.VUE_APP_HOST}/items/${robotData.id}`, {
         name: robotData.name,
       }).then(() => {
         this.fetchData();
@@ -100,8 +99,9 @@ export default {
       });
     },
     fetchData() {
-      this.$http.get('http://test-poc.loc/items').then((data) => {
+      this.$http.get(`${process.env.VUE_APP_HOST}/items`).then((data) => {
         this.robotNames = data.body.items;
+        console.log(process.env.VUE_APP_HOST);
       });
     },
   },
@@ -112,14 +112,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+  .ant-btn-primary:focus {
+    color: #fff;
+    background-color: #c1d3de;
+    border-color: #c1d3de;
+  }
 
   .right{
     float: right;
   }
-h4{
-
-  background: linear-gradient(to right, #A2A7A5, #DADAD9 );
+h3{
+/*height: 32px;*/
+  /*border-bottom: dashed;*/
+  background: linear-gradient(to right, #DADAD9, #DADAD9 );
 }
   #deleteButton {
 

@@ -81,7 +81,7 @@ export default {
   /*@import  "~ant-design-vue/dist/antd.less";*/
 
   body{
-    background: linear-gradient(to bottom, #DADAD9,#DADAD1 );
+    background: linear-gradient(to bottom, #DADAD9,#DADAD9);
     background-attachment: fixed;
   }
 </style>

@@ -7,7 +7,7 @@
 
 
 <script>
-import parts from '../data/parts.js';
+import parts from '../data/parts';
 
 export default {
   name: 'PartInfo',
