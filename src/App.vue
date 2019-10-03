@@ -22,7 +22,7 @@
 
           </li>
           <li class="nav-item">
-            <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
+            <router-link active-class="nav-high" class="nav-link" :to="{ name: 'AddParts'}" exact>
               Add Parts
             </router-link>
           </li>
@@ -44,7 +44,7 @@
             Browse Parts
           </a-breadcrumb-item>
           </router-link>
-          <router-link active-class="nav-high" class="nav-link" :to="{ name: 'MoreInfo'}" exact>
+          <router-link active-class="nav-high" class="nav-link" :to="{ name: 'AddParts'}" exact>
             <a-breadcrumb-item>
              Add Parts
             </a-breadcrumb-item>

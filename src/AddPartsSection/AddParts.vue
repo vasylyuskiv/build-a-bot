@@ -144,6 +144,7 @@ export default {
       });
     },
     fetchData() {
+      console.log(process.env.VUE_APP_HOST);
       this.$http.get(`${process.env.VUE_APP_HOST}/items`).then((data) => {
         this.robotNames = data.body.items;
       });
