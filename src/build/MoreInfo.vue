@@ -39,8 +39,9 @@
       </a-col>
       <a-col :span="8">
         <a-input-number
-          :defaultValue="100"
-          :max="1000"
+          :defaultValue="20"
+          :max="100000"
+          :maxlength="6"
           :min="1"
           :formatter="value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
           :parser="value => value.replace(/\$\s?|(,*)/g, '')"
@@ -67,7 +68,7 @@
         <p>{{editableLine.id}}</p>
         <p><a-input v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.name"/></p>
         <p><a-input v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.description"/></p>
-        <p><a-input v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.price"/></p>
+        <p><a-input :maxlength="6" v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.price"/></p>
       </div>
   </a-modal>
   </div>
@@ -87,7 +88,7 @@ export default {
       editableLine: null,
       visible: false,
       robotNames: [],
-      addedPrice: '100',
+      addedPrice: '20',
       addedDescription: '',
       addedName: '',
       dataIsSending: false,
@@ -116,7 +117,7 @@ export default {
       const emptyPrice = this.addedPrice;
       this.addedName = null;
       this.addedDescription = null;
-      this.addedPrice = null;
+      this.addedPrice = 20;
       this.$http.post(`${process.env.VUE_APP_HOST}/items`, {
         name: emptyField,
         description: emptyDescription,
