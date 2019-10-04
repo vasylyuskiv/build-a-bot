@@ -9,7 +9,7 @@
             <a-row type="flex" justify="space-between">
               <a-col>{{ robotName.name }}</a-col>
               <a-col>
-                <a-button id="deleteButton"  v-on:click.once="deleteLine(robotName.id)" class="right" type="danger">delete</a-button>
+                <a-button id="deleteButton"  v-on:click="deleteLine(robotName.id)" class="right" type="danger">delete</a-button>
                 <a-button id="editButton" type="primary" class="right" v-on:click.prevent="handleModalOpen(robotName)">edit</a-button>
               </a-col>
             </a-row >

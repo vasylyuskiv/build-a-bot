@@ -27,7 +27,7 @@
             </router-link>
           </li>
         </ul>
-        <a-breadcrumb>
+
           <router-link active-class="nav-high" class="nav-link" :to="{ name: 'Home'}" exact>
           <a-breadcrumb-item >
             <a-icon type="home" />
@@ -49,8 +49,6 @@
              Add Parts
             </a-breadcrumb-item>
           </router-link>
-
-        </a-breadcrumb>
       </nav>
       </header>
   </div>
