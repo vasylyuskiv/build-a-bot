@@ -115,8 +115,8 @@ export default {
       const emptyField = this.addedName;
       const emptyDescription = this.addedDescription;
       const emptyPrice = this.addedPrice;
-      this.addedName = null;
-      this.addedDescription = null;
+      this.addedName = '';
+      this.addedDescription = '';
       this.addedPrice = 20;
       this.$http.post(`${process.env.VUE_APP_HOST}/items`, {
         name: emptyField,
