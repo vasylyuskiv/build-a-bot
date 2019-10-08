@@ -10,7 +10,7 @@ import RobotBases from '../parts/RobotBases.vue';
 import RobotTorsos from '../parts/RobotTorsos.vue';
 import SidebarStandart from '../sidebar/SidebarStandart.vue';
 import SidebarBuild from '../sidebar/SidebarBuild.vue';
-import AddPars from '../AddPartsSection/AddParts.vue';
+import AddPars from '../AddPartsSection/MakeEditParts.vue';
 
 Vue.use(Router);
 

@@ -9,12 +9,27 @@
             <a-row type="flex" justify="space-between">
               <a-col>{{ robotName.name }}</a-col>
               <a-col>
-                <a-button id="deleteButton"  v-on:click="deleteLine(robotName.id)" class="right" type="danger">delete</a-button>
-                <a-button id="editButton" type="primary" class="right" v-on:click.prevent="handleModalOpen(robotName)">edit</a-button>
+                <a-button
+                  id="deleteButton"
+                  v-on:click="deleteLine(robotName.id)"
+                  class="right"
+                  type="danger">
+                  delete
+                </a-button>
+                <a-button
+                  id="editButton"
+                  type="primary"
+                  class="right"
+                  v-on:click.prevent="handleModalOpen(robotName)">
+                  edit
+                </a-button>
               </a-col>
             </a-row >
             <a-row type="flex" justify="space-between">
-              <a-col :span="20" id="description"> Description: <p>{{robotName.description}}</p></a-col>
+              <a-col :span="20" id="description">
+                Description:
+                <p>{{robotName.description}}</p>
+              </a-col>
               <a-col :span="4" id="price">price: {{robotName.price}}$</a-col>
             </a-row>
           </li></ul></h2>
@@ -30,6 +45,7 @@
     </a-col>
    <a-col :span="24">
      <a-input
+       id="addingName"
        placeholder="Part Name"
        size="default"
        type="text"
@@ -42,6 +58,7 @@
     <a-row type="flex">
       <a-col :span="24">
         <a-textarea
+          id="addingDescription"
           v-model="addedDescription"
           style="margin-bottom: 1px"
 
@@ -50,6 +67,7 @@
       </a-col>
       <a-col :span="8">
         <a-input-number
+          id="addingPrice"
           :defaultValue="20"
           :max="100000"
           :maxlength="6"
@@ -66,6 +84,7 @@
     </a-row>
     </form>
 </a-row>
+<!--  <AddingPartsToServer @fetching="fetchData"/>-->
 </div>
       </div>
 
@@ -77,9 +96,15 @@
   >
       <div v-if="editableLine">
         <p>{{editableLine.id}}</p>
-        <p><a-input v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.name"/></p>
-        <p><a-input v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.description"/></p>
-        <p><a-input :maxlength="6" v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.price"/></p>
+        <p><a-input id="editName" v-on:keyup.enter="handleModalOk" type="text" v-model="editableLine.name"/></p>
+        <p><a-input id="editDescription" v-on:keyup.enter="handleModalOk"
+                    type="text"
+                    v-model="editableLine.description"/></p>
+        <p><a-input id="editPrice"
+                    :maxlength="6"
+                    v-on:keyup.enter="handleModalOk"
+                    type="text"
+                    v-model="editableLine.price"/></p>
       </div>
   </a-modal>
   </div>
@@ -87,9 +112,11 @@
 
 
 <script>
+import AddingPartsToServer from './AddingPartsToServer.vue';
 
 export default {
   name: 'MoreInfo',
+  components: { AddingPartsToServer },
   data() {
     return {
       value: '',
@@ -168,7 +195,6 @@ export default {
       });
     },
     fetchData() {
-      console.log(process.env.VUE_APP_HOST);
       this.$http.get(`${process.env.VUE_APP_HOST}/items`).then((data) => {
         this.robotNames = data.body.items;
       });
