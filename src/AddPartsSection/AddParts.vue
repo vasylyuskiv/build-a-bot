@@ -29,13 +29,24 @@
   <label > Creat your Robot Name, Description and Price:</label>
     </a-col>
    <a-col :span="24">
-     <a-input placeholder="Part Name" size="default" type="text" v-model="addedName" />
+     <a-input
+       placeholder="Part Name"
+       size="default"
+       type="text"
+       v-model="addedName"
+        />
+     <div  id="invalidInput" v-if="missingName && showWarning" >Part Name is required.</div>
    </a-col>
 
     </a-row>
     <a-row type="flex">
       <a-col :span="24">
-        <a-textarea v-model="addedDescription" style="margin-bottom: 1px" placeholder="What your part is going to do?" :autosize="{ minRows: 2, maxRows: 50 }" />
+        <a-textarea
+          v-model="addedDescription"
+          style="margin-bottom: 1px"
+
+          placeholder="What your part is going to do?"
+          :autosize="{ minRows: 2, maxRows: 50 }" />
       </a-col>
       <a-col :span="8">
         <a-input-number
@@ -50,7 +61,7 @@
       </a-col>
 
       <a-col :span="16">
-        <a-button  type="primary" id="postToBaseButton" v-on:click.prevent="post">Send</a-button>
+        <a-button  type="primary" id="postToBaseButton" v-on:click.prevent="validateForm">Send</a-button>
       </a-col>
     </a-row>
     </form>
@@ -82,6 +93,7 @@ export default {
   data() {
     return {
       value: '',
+      showWarning: false,
       nonEditedName: '',
       nonEditedPrice: '',
       nonEditedDescription: '',
@@ -94,7 +106,19 @@ export default {
       dataIsSending: false,
     };
   },
+  computed: {
+    missingName() { return this.addedName === ''; },
+  },
   methods: {
+    validateForm(event) {
+      if (this.missingName) {
+        event.preventDefault();
+        this.showWarning = true;
+      } else {
+        this.post();
+        this.showWarning = false;
+      }
+    },
     handleModalOpen(robotData) {
       this.visible = true;
       this.editableLine = robotData;
@@ -197,5 +221,9 @@ margin-top: 10px;
   .ant-input-number{
     display: block;
     width: 100%;
+  }
+  #invalidInput{
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    color:#ff7979;
   }
 </style>

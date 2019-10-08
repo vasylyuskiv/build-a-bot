@@ -34,7 +34,7 @@
           </a-breadcrumb-item>
           </router-link>
           <router-link active-class="nav-high" class="nav-link" :to="{ name: 'Build'}" exact>
-          <a-breadcrumb-item href="">
+          <a-breadcrumb-item>
             <a-icon type="user" />
             <span>Build Robot</span>
           </a-breadcrumb-item>
