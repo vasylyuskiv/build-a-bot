@@ -3,11 +3,11 @@
     <form id="formSubmit" v-on:submit.prevent="post">
       <a-row type="flex">
         <a-col :span="24">
-          <label > Creat your Robot Name, Description and Price:</label>
+          <label>Creat your Robot Name, Description and Price:</label>
         </a-col>
         <a-col :span="24">
           <a-input
-            id="addingName"
+            id="addName"
             placeholder="Part Name"
             size="default"
             type="text"
@@ -20,7 +20,7 @@
       <a-row type="flex">
         <a-col :span="24">
           <a-textarea
-            id="addingDescription"
+            id="addDescription"
             v-model="addedDescription"
             style="margin-bottom: 1px"
 
@@ -29,7 +29,7 @@
         </a-col>
         <a-col :span="8">
           <a-input-number
-            id="addingPrice"
+            id="addPrice"
             :defaultValue="20"
             :max="100000"
             :maxlength="6"
@@ -52,9 +52,7 @@
 
 <script>
 export default {
-  fetching() {
-    this.$emit('fetching');
-  },
+
   name: 'AddingPartsToServer',
   data() {
     return {
@@ -77,6 +75,9 @@ export default {
         this.post();
         this.showWarning = false;
       }
+    },
+    fetching() {
+      this.$emit('fetching');
     },
     post() {
       this.dataIsSending = true;
